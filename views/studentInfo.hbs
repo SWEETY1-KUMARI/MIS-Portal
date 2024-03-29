@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        header {
+            background-color: #265073;
+            color: #fff;
+            padding: 20px;
+        }
+
+        #searchBar, #filterSelect {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #studentTable {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #studentTable th, #studentTable td {
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Information Is Here</h1>
+        <label for="filterSelect">Filter By:</label>
+        <select id="filterSelect" onchange="filterStudents()">
+            <option value="rollNumber">Roll Number</option>
+            <option value="name">Name</option>
+            <option value="fathersName">Father's Name</option>
+            <option value="department">Department</option>
+            <option value="cgpa">CGPA</option>
+            <option value="attendancePercentage">Attendance Percentage</option>
+        </select>
+        <input type="text" id="searchBar" placeholder="Search" oninput="filterStudents()">
+    </header>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Department</th>
+                <th>CGPA</th>
+                <th>Attendance Percentage</th>
+            </tr>
+        </thead>
+        <tbody id="studentList">
+            <!-- Student information will be displayed here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Sample student data
+        var students = [
+    { rollNumber: '2106121', name: 'John Doe', fathersName: 'John Doe Sr.', department: 'Computer Engineering', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2104011', name: 'Jane Smith', fathersName: 'Jane Smith Sr.', department: 'Electrical Engineering', cgpa: 3.9, attendancePercentage: 92 },
+    { rollNumber: '2108155', name: 'Bob Johnson', fathersName: 'Bob Johnson Sr.', department: 'Mechanical Engineering', cgpa: 3.5, attendancePercentage: 85 },
+    { rollNumber: '2109223', name: 'Alice Williams', fathersName: 'Alice Williams Sr.', department: 'Civil Engineering', cgpa: 3.8, attendancePercentage: 90 },
+    { rollNumber: '2107122', name: 'Chris Brown', fathersName: 'Chris Brown Sr.', department: 'Chemical Engineering', cgpa: 3.6, attendancePercentage: 87 },
+    { rollNumber: '2105078', name: 'Eva Davis', fathersName: 'Eva Davis Sr.', department: 'Biomedical Engineering', cgpa: 3.9, attendancePercentage: 94 },
+    { rollNumber: '2106044', name: 'Mike Taylor', fathersName: 'Mike Taylor Sr.', department: 'Aerospace Engineering', cgpa: 3.7, attendancePercentage: 89 },
+    { rollNumber: '2102189', name: 'Olivia Miller', fathersName: 'Olivia Miller Sr.', department: 'Industrial Engineering', cgpa: 3.6, attendancePercentage: 86 },
+    { rollNumber: '2103098', name: 'Daniel Anderson', fathersName: 'Daniel Anderson Sr.', department: 'Materials Science', cgpa: 3.8, attendancePercentage: 91 },
+    { rollNumber: '2101033', name: 'Sophia Wilson', fathersName: 'Sophia Wilson Sr.', department: 'Environmental Engineering', cgpa: 3.9, attendancePercentage: 93 },
+    { rollNumber: '2104156', name: 'Matthew Martinez', fathersName: 'Matthew Martinez Sr.', department: 'Chemical Engineering', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2106121', name: 'John Doe', fathersName: 'John Doe Sr.', department: 'Computer Engineering', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2104011', name: 'Jane Smith', fathersName: 'Jane Smith Sr.', department: 'Electrical Engineering', cgpa: 3.9, attendancePercentage: 92 },
+    { rollNumber: '2108155', name: 'Bob Johnson', fathersName: 'Bob Johnson Sr.', department: 'Mechanical Engineering', cgpa: 3.5, attendancePercentage: 85 },
+    { rollNumber: '2109223', name: 'Alice Williams', fathersName: 'Alice Williams Sr.', department: 'Civil Engineering', cgpa: 3.8, attendancePercentage: 90 },
+    { rollNumber: '2107122', name: 'Chris Brown', fathersName: 'Chris Brown Sr.', department: 'Chemical Engineering', cgpa: 3.6, attendancePercentage: 87 },
+    { rollNumber: '2105078', name: 'Eva Davis', fathersName: 'Eva Davis Sr.', department: 'Biomedical Engineering', cgpa: 3.9, attendancePercentage: 94 },
+    { rollNumber: '2106044', name: 'Mike Taylor', fathersName: 'Mike Taylor Sr.', department: 'Aerospace Engineering', cgpa: 3.7, attendancePercentage: 89 },
+    { rollNumber: '2102189', name: 'Olivia Miller', fathersName: 'Olivia Miller Sr.', department: 'Industrial Engineering', cgpa: 3.6, attendancePercentage: 86 },
+    { rollNumber: '2103098', name: 'Daniel Anderson', fathersName: 'Daniel Anderson Sr.', department: 'Materials Science', cgpa: 3.8, attendancePercentage: 91 },
+    { rollNumber: '2101033', name: 'Sophia Wilson', fathersName: 'Sophia Wilson Sr.', department: 'Environmental Engineering', cgpa: 3.9, attendancePercentage: 93 },
+    { rollNumber: '2104156', name: 'Matthew Martinez', fathersName: 'Matthew Martinez Sr.', department: 'Chemical Engineering', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2105110', name: 'Liam Brown', fathersName: 'Liam Brown Sr.', department: 'Computer Science', cgpa: 3.6, attendancePercentage: 90 },
+    { rollNumber: '2106212', name: 'Emma Davis', fathersName: 'Emma Davis Sr.', department: 'Electrical Engineering', cgpa: 3.8, attendancePercentage: 91 },
+    { rollNumber: '2107144', name: 'Noah Taylor', fathersName: 'Noah Taylor Sr.', department: 'Mechanical Engineering', cgpa: 3.9, attendancePercentage: 92 },
+    { rollNumber: '2108223', name: 'Ava Martinez', fathersName: 'Ava Martinez Sr.', department: 'Civil Engineering', cgpa: 3.7, attendancePercentage: 89 },
+    { rollNumber: '2109331', name: 'William Wilson', fathersName: 'William Wilson Sr.', department: 'Biomedical Engineering', cgpa: 3.5, attendancePercentage: 87 },
+    { rollNumber: '2110124', name: 'Isabella Anderson', fathersName: 'Isabella Anderson Sr.', department: 'Aerospace Engineering', cgpa: 3.8, attendancePercentage: 94 },
+    { rollNumber: '2111015', name: 'James Miller', fathersName: 'James Miller Sr.', department: 'Industrial Engineering', cgpa: 3.7, attendancePercentage: 86 },
+    { rollNumber: '2112088', name: 'Sophia Johnson', fathersName: 'Sophia Johnson Sr.', department: 'Materials Science', cgpa: 3.9, attendancePercentage: 90 },
+    { rollNumber: '2113055', name: 'Benjamin Smith', fathersName: 'Benjamin Smith Sr.', department: 'Environmental Engineering', cgpa: 3.6, attendancePercentage: 88 },
+    { rollNumber: '2114123', name: 'Mia Davis', fathersName: 'Mia Davis Sr.', department: 'Chemical Engineering', cgpa: 3.7, attendancePercentage: 91 },
+    { rollNumber: '2106121', name: 'John Doe', fathersName: 'John Doe Sr.', department: 'Computer Science', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2104011', name: 'Jane Smith', fathersName: 'Jane Smith Sr.', department: 'Electrical Engineering', cgpa: 3.9, attendancePercentage: 92 },
+    { rollNumber: '2108155', name: 'Alex Johnson', fathersName: 'Alex Johnson Sr.', department: 'Mechanical Engineering', cgpa: 3.5, attendancePercentage: 85 },
+    { rollNumber: '2109223', name: 'Lily Williams', fathersName: 'Lily Williams Sr.', department: 'Civil Engineering', cgpa: 3.8, attendancePercentage: 90 },
+    { rollNumber: '2107122', name: 'Max Brown', fathersName: 'Max Brown Sr.', department: 'Chemical Engineering', cgpa: 3.6, attendancePercentage: 87 },
+    { rollNumber: '2105078', name: 'Grace Davis', fathersName: 'Grace Davis Sr.', department: 'Biomedical Engineering', cgpa: 3.9, attendancePercentage: 94 },
+    { rollNumber: '2106044', name: 'Ethan Taylor', fathersName: 'Ethan Taylor Sr.', department: 'Aerospace Engineering', cgpa: 3.7, attendancePercentage: 89 },
+    { rollNumber: '2102189', name: 'Ava Miller', fathersName: 'Ava Miller Sr.', department: 'Industrial Engineering', cgpa: 3.6, attendancePercentage: 86 },
+    { rollNumber: '2103098', name: 'Oliver Anderson', fathersName: 'Oliver Anderson Sr.', department: 'Materials Science', cgpa: 3.8, attendancePercentage: 91 },
+    { rollNumber: '2101033', name: 'Chloe Wilson', fathersName: 'Chloe Wilson Sr.', department: 'Environmental Engineering', cgpa: 3.9, attendancePercentage: 93 },
+    { rollNumber: '2104156', name: 'Daniel Martinez', fathersName: 'Daniel Martinez Sr.', department: 'Chemical Engineering', cgpa: 3.7, attendancePercentage: 88 },
+    { rollNumber: '2105110', name: 'Sophie Brown', fathersName: 'Sophie Brown Sr.', department: 'Computer Science', cgpa: 3.6, attendancePercentage: 90 },
+    { rollNumber: '2106212', name: 'Jack Davis', fathersName: 'Jack Davis Sr.', department: 'Electrical Engineering', cgpa: 3.8, attendancePercentage: 91 },
+    { rollNumber: '2107144', name: 'Emma Taylor', fathersName: 'Emma Taylor Sr.', department: 'Mechanical Engineering', cgpa: 3.9, attendancePercentage: 92 },
+    { rollNumber: '2108223', name: 'Noah Martinez', fathersName: 'Noah Martinez Sr.', department: 'Civil Engineering', cgpa: 3.7, attendancePercentage: 89 },
+    { rollNumber: '2109331', name: 'Mia Wilson', fathersName: 'Mia Wilson Sr.', department: 'Biomedical Engineering', cgpa: 3.5, attendancePercentage: 87 },
+    { rollNumber: '2110124', name: 'Liam Anderson', fathersName: 'Liam Anderson Sr.', department: 'Aerospace Engineering', cgpa: 3.8, attendancePercentage: 94 },
+    { rollNumber: '2111015', name: 'Aria Miller', fathersName: 'Aria Miller Sr.', department: 'Industrial Engineering', cgpa: 3.7, attendancePercentage: 86 },
+    { rollNumber: '2112088', name: 'Elijah Johnson', fathersName: 'Elijah Johnson Sr.', department: 'Materials Science', cgpa: 3.9, attendancePercentage: 90 },
+    { rollNumber: '2113055', name: 'Zoe Smith', fathersName: 'Zoe Smith Sr.', department: 'Environmental Engineering', cgpa: 3.6, attendancePercentage: 88 },
+    { rollNumber: '2114123', name: 'Carter Davis', fathersName: 'Carter Davis Sr.', department: 'Chemical Engineering', cgpa: 3.7, attendancePercentage: 91 },
+];
+
+
+        // Function to filter students based on the selected filter and search input
+        function filterStudents() {
+            var filterBy = document.getElementById('filterSelect').value;
+            var searchInput = document.getElementById('searchBar').value.toLowerCase();
+
+            var filteredStudents = students.filter(function(student) {
+                return student[filterBy].toLowerCase().includes(searchInput);
+            });
+
+            displayStudents(filteredStudents);
+        }
+
+        // Function to display students in the table
+        function displayStudents(studentArray) {
+            var studentList = document.getElementById('studentList');
+            studentList.innerHTML = ''; // Clear previous list
+
+            studentArray.forEach(function(student) {
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${student.rollNumber}</td>
+                    <td>${student.name}</td>
+                    <td>${student.fathersName}</td>
+                    <td>${student.department}</td>
+                    <td>${student.cgpa}</td>
+                    <td>${student.attendancePercentage}%</td>
+                `;
+                studentList.appendChild(row);
+            });
+        }
+
+        // Initial display of all students
+        displayStudents(students);
+    </script>
+</body>
+</html>

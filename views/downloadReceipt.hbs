@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Receipt</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar {
+    background-color: #265073;
+    color: #fff;
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.line-with-text {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+
+form > * {
+    margin-bottom: 10px;
+}
+input::placeholder,
+select::placeholder {
+    color: #555;
+    font-size: 14px;
+}
+
+input::placeholder,
+select::placeholder {
+    color: #555;
+    font-size: 14px;
+}
+
+button {
+    background-color: #265073;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #386991;
+}
+
+#downloadBtn {
+    background-color: #265073;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#downloadBtn:hover {
+    background-color: #447dad;
+}
+
+#downloadBtn {
+    margin-left:90px; 
+}
+
+select {
+    padding: 10px; 
+}
+
+    </style>
+</head>
+<body>
+   
+    <div class="navbar">
+        <h2></h2>
+    </div>
+
+    <div class="line-with-text">
+        <p>Download Your Admission Receipt</p>
+    </div>
+
+  
+    <div class="form-container">
+        <form id="admissionForm">
+            <h3>Enter Your Enrollment No</h3>
+            <input type="text" id="enrollmentNo" placeholder="Enrollment No">
+            <br>
+            <label for="academicYear">Select Academic Year</label>
+            <select id="academicYear">
+                <option value="sem1">Semester 1</option>
+                <option value="sem2">Semester 2</option>
+                <option value="sem1">Semester 3</option>
+                <option value="sem2">Semester 4</option>
+                <option value="sem1">Semester 5</option>
+                <option value="sem2">Semester 6</option>
+                <option value="sem1">Semester 7</option>
+                <option value="sem2">Semester 8</option>
+                <option value="mtech">M.Tech</option>
+                <option value="phd">PhD</option>
+            </select>
+            <br>
+            <label for="year">Select Year</label>
+            <select id="year">
+                <option value="2020">2018</option>
+                <option value="2021">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2020">2022</option>
+                <option value="2021">2023</option>
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+
+            <button type="button" id="downloadBtn" style="display: none">Download Now</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('admissionForm');
+            var downloadBtn = document.getElementById('downloadBtn');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); 
+
+                var enrollmentNo = document.getElementById('enrollmentNo').value;
+                var academicYear = document.getElementById('academicYear').value;
+                var year = document.getElementById('year').value;
+
+                if (enrollmentNo && academicYear && year) {
+                   
+                    downloadBtn.style.display = 'inline-block';
+                    generatePDF();
+                } else {
+                   
+                    alert('Please fill in all required fields.');
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elective Courses</title>
+    <style>
+       
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: rgb(164,221,232);
+background: linear-gradient(90deg, rgba(164,221,232,1) 37%, rgba(71,193,232,1) 63%);
+            display: flex;
+            flex-direction: column;
+        }
+        .dropdown,
+        .course-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .dropdown label,
+        .course-info label {
+            margin-right: 10px;
+        }
+        .dropdown select {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .course-info input {
+            font-weight: bold;
+            font-size: 16px;
+            width: 200px; 
+            padding: 5px;
+        }
+        .course {
+            font-size: larger;
+            font-weight: bold;
+        }
+        #course-title{
+            font-size: larger;
+            font-weight: bold;
+            
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><u>Department Elective</u></h1>
+        
+        <div class="dropdown">
+            <label for="course-code" class="course">Course Code:</label>
+            <select id="course-code">
+                <option value="course1">CS54111</option>
+                <option value="course2">CS54112</option>
+                <option value="course3">CS54113</option>
+                
+            </select>
+        </div>
+        <div>
+            <label for="course-title" class="course">Course Title:</label>
+            <input type="text" id="course-title" placeholder="Course Title" readonly>
+            
+            
+        </div>
+    </div>
+    <script>
+       
+        const courseCodeDropdown = document.getElementById('course-code');
+        const courseTitleInput = document.getElementById('course-title');
+
+        courseCodeDropdown.addEventListener('change', function() {
+            
+            switch(this.value) {
+                case 'course1':
+                    courseTitleInput.value = 'Virtual Reality';
+                    break;
+                case 'course2':
+                    courseTitleInput.value = 'Computer Graphics';
+                    break;
+                case 'course3':
+                    courseTitleInput.value = 'Digital Image Processing';
+                    break;
+             
+                default:
+                    courseTitleInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

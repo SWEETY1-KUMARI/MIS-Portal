@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+    
+    .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.logo{
+   
+    width:150px;
+    height:150px;
+    margin-left:50px;
+   
+}
+.text{
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+    margin:0;
+    line-height: 0;
+}
+.header {
+  text-align: center;
+  display:flex;
+  
+}
+
+.header img {
+  max-width: 150px;
+}
+.desc{
+    color:rgb(68, 22, 137)
+}
+#gradecard{
+    text-align: center;
+    
+}
+table {
+  width: 100%;
+  border-collapse: blue collapse;
+  margin-top: 20px;
+  color:blue;
+}
+.heads{
+    text-align: left;
+}
+table, th, td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.date {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.instructions {
+  margin-top: 20px;
+}
+.downloadButton{
+  display:flex;
+  justify-content: center;
+}
+#downloadButton{
+  color:blue;
+  background-color:aquamarine;
+  cursor:pointer;
+}  
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <div class="header">
+          <img src="https://www.nitp.ac.in/static/logo512-579d034908ae89b5e0243d1274937d5d.png" alt="College Logo" class="logo">
+          <div class="text">
+            <h2>राष्ट्रीय प्रौद्योगिकी संस्थान, पटना</h2>
+        <h2>National Institute of Technology, Patna</h2>
+          <p class="desc">(An institute under Ministry of HRD, Govt. of India)</p>
+          <p class="desc">Ashok Rajpath, Patna, Bihar-800005</p>
+          </div>
+          
+         
+          <div class="date">Date of Printing: [Date]</div>
+        </div>
+        <br>
+        <div>
+            <h1 id="gradecard"><p><u>Grade Card</u></p></h1>
+        </div>
+        
+        <table>
+          <tr class="heads">
+            <th colspan="3" >Name : {{user.name}}</th>
+            <th colspan="3" rowspan="2">Enrollment No. : {{user.eno}}</th>
+            
+            <!-- Other cells as described -->
+          </tr>
+
+          <!-- Rows for other details -->
+          <tr class="heads">
+            <th colspan="3">Rollno. :  {{user.rollno}} </th>
+            
+            <!-- Fill other details accordingly -->
+          </tr>
+          <tr class="heads">
+            <th colspan="2">Program : {{user.coursename}}</th>
+            <th colspan="2"> Semester :  {{user.currentsemester}}</th>
+            <th colspan="2">Session : {{user.currentsession}}</th>
+            <!-- Fill other details accordingly -->
+          </tr>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>L-T-P</th>
+            <th>Credit</th>
+            <th>Number of Attempt</th>
+            <th>Grade</th>
+            <!-- Fill other details accordingly -->
+          </tr>
+           <tr>
+            <td>CE43120</td>
+            <td>Air ,water and Noise Pollution</td>
+            <td>3-0-0</td>
+            <td>3</td>
+            <td>1</td>
+            <td>B</td>
+           
+          </tr>
+          <tr>
+            <tr>
+                <td>CS44112</td>
+                <td>Artificial intelligence</td>
+                <td>3-0-2</td>
+                <td>4</td>
+                <td>1</td>
+                <td>A+</td>
+               
+              </tr>
+           
+          </tr>
+          <tr>
+            <tr>
+                <td>CS44113</td>
+                <td>Computer Networks</td>
+                <td>3-0-2</td>
+                <td>4</td>
+                <td>1</td>
+                <td>A</td>
+                
+              </tr>
+            
+          </tr>
+          <tr>
+            <tr>
+                <td>CS44114</td>
+                <td>Automata Theory and Compiler Design</td>
+                <td>3-0-2</td>
+                <td>4</td>
+                <td>1</td>
+                <td>A</td>
+                
+              </tr>
+           
+          </tr>
+          <tr>
+            <td>CS44115</td>
+            <td>Design and Analysis of Algorithms</td>
+            <td>3-0-2</td>
+            <td>4</td>
+            <td>1</td>
+            <td>B</td>
+          
+          </tr>
+          <tr>
+            <th colspan="1" >SGPA: 8.84</th>
+            <th colspan="1" >CGPA: 8.84</th>
+            <th colspan="1" >Pass</th>
+            <th colspan="1">19</th>
+            <th></th> 
+            <th></th>
+          </tr>
+          <!-- Repeat rows as needed -->
+        </table>
+        <!-- Other content as described -->
+        <div class="instructions">
+          <ol>
+            <li>It is an electronically generated print, signature in original not required.</li>
+            <li>Conversion of CGPA/SGPA to % of marks = CGPA/SGPA x 10.</li>
+            <!-- Other instructions -->
+          </ol>
+        </div>
+        <div class="downloadButton">
+      <button id="downloadButton">Download Admit Card</button>
+      </div>
+    
+  </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('downloadButton').addEventListener('click', function() {
+      const element = document.querySelector('.container');
+      
+      html2pdf().from(element).save('admit_card.pdf');
+    });
+  </script>
+</body>
+</html>

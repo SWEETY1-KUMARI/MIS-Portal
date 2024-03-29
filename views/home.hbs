@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect 360</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+          .background2{
+            margin:0;
+            padding:0;
+            background:url('https://www.nitp.ac.in/static/38e3ca6dcde2d64b3a8dd024e041b302/d8255/homebg-1.jpg')  no-repeat center fixed ;
+            position :relative;
+            height:50vh;
+           
+          }
+        #header {
+            
+            background-color: rgb(62, 17, 105);
+            color: #fff;
+            text-align: center;
+           
+            position: relative;
+            overflow:hidden;
+           margin-right:0;
+           padding:0;
+           justify-content: space-around;
+        }
+        
+        #header{
+            margin:0;
+            padding:0;
+            display:flex;
+            text-align: center;
+            
+        }
+        #header h1 {
+            margin: 10px ;
+            display:inline-block;
+     
+         
+            
+            
+        }
+        #home-register{
+            margin:0;
+            padding :0;
+            display:flex;
+            justify-content: right;
+            position:relative;
+            
+        }
+        .link{
+            padding:20px;
+            text-decoration: none;
+            color:rgb(38, 31, 83);
+            font-weight: bold;
+            
+        }
+        #nitp{
+            display:flex;
+        }
+        #portal-name{
+            margin-right:15px;
+        }
+        #connect1{
+            margin-right:10px;
+        }
+        
+        #college-logo, #connect-logo {
+            margin:10px 0 0 0;
+            padding :0;
+            display: inline-block;
+            border-radius:50px;
+            vertical-align: middle;
+        }
+
+        #navigation {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            height:30px;
+        }
+
+        #portal-description {
+            display:block;
+           background-color: rgba(255, 255, 255, 0.7);
+            color:black;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+
+        #login-boxes {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0px;
+            background-color:#6c74b5;
+            
+        }
+
+        .login-box {
+            width: 200px;
+            height: 200px;
+            background-color:#ecf0f1;
+            border-radius: 10px;
+            margin: 50px 30px 30px 10px;
+            padding: 10px;
+            text-align: center;
+            cursor:pointer;
+
+
+            
+        }
+        .login-box:active{
+            background-color:rgb(59, 59, 107); /* Change color on click */
+            transform: scale(0.95);
+
+        }
+        #college-logo span, #connect-logo span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        #text,#college-logo{
+            display:flex;
+            align-items: center;
+            margin-right:0;
+        }
+        .login{
+            color:#02243c;
+            text-decoration: none;
+            text-shadow: #3c3c3f;
+            text-overflow: ellipsis;
+        }
+        .logo{
+            color:#02243c
+        }
+        .image-logo{
+            height:100px;
+            width:100px;
+            border-radius:100px;
+        }
+        #footer {
+            background-color:#191d42;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        {{!-- <h1 id="portal_name"><i>Campus Connect 360</i></h1> --}}
+        
+        <div id="nitp">
+            <img id="college-logo" src="https://www.nitp.ac.in/static/logo512-579d034908ae89b5e0243d1274937d5d.png" alt="College Logo" width="50" height="50"><h2>National Institute of Technology, Patna</h2>
+        </div>
+       {{!-- <div id="nitp">
+        <img id="connect-logo" src="https://play-lh.googleusercontent.com/hlsB8TLGLBG9In5C6T-FIRRt8VyfbRculj9uG7ay5gSoHTrkrsHnO-_GrgzFuiW8I98" alt="Campus Connect 360 Logo" width="50" height="50"><h2 id="connect1">Campus Connect 360</h2>
+       </div> --}}
+        
+    </div>
+   <div class="background1">
+        <div class="background2">
+            <div id="home-register">
+                <p><a href="/registration" class="link">StudentRegister</a> | <a href="/facultyRegister" class="link">FacultyRegister</a> | <a href="/adminRegister" class="link">AdminRegister</a></p>
+            </div>
+    <div id="navigation">
+        <marquee><p><I>Welcome to the "Campus Connect 360" Portal</I></p></marquee>
+    </div>
+
+    <div id="portal-description">
+        <h2>Campus Connect 360 Portal</h2>
+        <p>This is the Campus Connect 360 portal, where students, faculty, and alumni can connect and access various services.</p>
+    </div>
+</div>
+    <div id="login-boxes">
+      
+        <div class="login-box" onclick="handleButtonClick()">
+            <a href="/login" class="login">
+                <p class="logo">Student Login</p>
+        <img class="image-logo" src="data:image/jpeg;base64,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">
+            </a>
+            
+        </div>
+        <div class="login-box" onclick="handleButtonClick()">
+            <a href="/facultylogin" class="login">
+                <p class="logo">Faculty Login</p>
+            <img class="image-logo" src="https://5.imimg.com/data5/BM/WR/GLADMIN-70100492/teacher-login-portal-500x500.png">
+            </a>
+        </div>
+        {{!-- <div class="login-box " onclick="handleButtonClick()">
+            <a href="/login" class="login">
+                <p class="logo">Alumni Login</p>
+                <img class="image-logo" src="https://alumnirelations.ust.edu.ph/resources/images/login-01.png">
+
+            </a>
+           
+        </div> --}}
+        <div class="login-box" onclick="handleButtonClick()">
+            <a href="/adminlogin" class="login">
+                <p class="logo">Admin Login</p>
+            <img class="image-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPMKcqPQO_cSa6mDoixayKi2GFIn3LBxek6LEyV2ECixKt4hD2BJkV6Nx4x6ZYwtkr_hU&usqp=CAU">
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+    <div id="footer">
+        <p>Department of Education. All rights reserved.</p>
+    </div>
+    
+
+</body>
+</html>

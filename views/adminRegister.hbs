@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/unicons.css">
+    <title>Registration Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background:  url('https://www.nitp.ac.in/static/38e3ca6dcde2d64b3a8dd024e041b302/d8255/homebg-1.jpg') center/cover no-repeat;
+}
+.container{
+    background-color: gainsboro;
+    position:relative;
+    max-width:900px;
+    width:100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin:0 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+ .container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color:#333;
+}
+/* .container header::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom:-2px;
+    height:3px;
+    width:27px;
+    border-radius: 8px;
+    background-color:#4070f4 ;
+} */
+.container form{
+    position: relative;
+    margin-top:16px;
+    max-height: 390px;
+    overflow: auto; 
+    background-color: gainsboro;
+}
+.container form .details{
+    margin-top: 30px;
+}
+.container form .details.address{
+    margin-top: 10px;
+}
+.container form .details.exam{
+    margin-top: 10px;
+}
+.container form .details.program{
+    margin-top: 10px;
+}
+.container form .details.account{
+    margin-top: 10px;
+}
+/* .container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size:16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color:#333;
+} */
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width:calc(100%/3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color:#2e2e2e;
+}
+.input-field input{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border:1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+} 
+.input-field input:is(:focus,:valid){
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+form .btnRegister{
+    border:none;
+    width:164px;
+    height:50px;
+    margin:auto;
+    margin-top: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding-left: 0;
+    background: #4070f4;
+    font-size: 15px;
+    color:#fff;
+}
+@media(max-width:750px){
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width:calc(100%/2 - 15px);
+    }
+}
+@media(max-width:550px){
+    form .fields .input-field{
+        width:calc(100%/2 - 15px);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header><center>Admin Registration Form</center></header>
+        <form action="/adminRegister" method="POST">
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" name="name">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your mail" name="email" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" name="dob">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Contact Number</label>
+                            <input type="Number" placeholder="Enter mobile number" name="mobileno">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter the password" name="password" required >
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Confirm password</label>
+                            <input type="password" placeholder="Enter confirmed password" name="confirmpassword" required>
+                        </div>
+                        
+                    </div>
+                    <input type="submit" class="btnRegister" value="Register">
+                </div>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>

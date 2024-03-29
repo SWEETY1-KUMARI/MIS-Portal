@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admit Card</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+#logo{
+    width:150px;
+    height:150px;
+}
+.text{
+    padding:0;
+    margin:0;
+  
+}
+#admitcard{
+    text-align:center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.desc{
+    color:rgb(53, 7, 106)
+}
+.right-details{
+display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 50px;
+}
+.image{
+    margin-left:0px;
+
+    width:110px;
+    height:110px;
+}
+.header {
+margin:10px 50px;
+padding :0px;
+text-align: center;
+  display:flex;
+  flex-wrap: column;
+  justify-content: center;
+}
+
+.header img {
+  max-width: 150px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.exam-details {
+  margin-top: 20px;
+}
+
+table {
+  
+  width: 100%;
+  border-collapse: solid  blue;
+  color:blue;
+}
+
+table, th, td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+#column{
+    color:blue;
+}
+
+.instructions {
+  margin-top: 20px;
+  line-height: 2;
+}
+.left-details{
+  color:rgb(37, 37, 50);
+  font-weight: bold;
+  font-size: large;
+}
+.downloadButton{
+  display:flex;
+  justify-content: center;
+}
+#downloadButton{
+  color:blue;
+  background-color:aquamarine;
+  cursor:pointer;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://www.nitp.ac.in/static/logo512-579d034908ae89b5e0243d1274937d5d.png" alt="College Logo" id="logo">
+      <div class="text">
+        <h2 id="collegename">राष्ट्रीय प्रौद्योगिकी संस्थान,पटना </h2>
+        <h2 id="collegename">National Institute of Technology,Patna</h2>
+        <p class="desc"><i>(An institute under Ministry of HRD, Govt. of India)</i></p>
+        <p class="desc">Ashok Rajpath, Patna, Bihar-800005</p>
+      </div>
+      
+     
+    </div>
+    <h2 id="admitcard"><u>Admit Card</u></h2>
+    <div class="details">
+      <div class="left-details">
+        <p>Name : {{user.name}}</p>
+        <p>Stream : {{user.branchname}}</p>
+        <p>Semester : {{user.currentsemester}}</p>
+        <p>Roll No :  {{user.rollno}}</p>
+        <p>Session :  {{user.session}}</p>
+      </div>
+      <div class="right-details">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIZvj4H0osVw6gjF7N1-T83eAU9hoSX7JxEQ&usqp=CAU" alt="Student Image" class="image">
+        <p>Signature: {{user.name}}</p>
+        {{!-- <img src="" alt="Student Signature"> --}}
+      </div>
+    </div>
+    <div class="exam-details">
+      <table >
+        <tr id="column">
+            
+          <th >Paper Abb</th>
+          <th>Paper Name</th>
+          <th>Exam Date</th>
+          <th>Candidate_Signature</th>
+          <th>Invigilator_Signature</th>
+        </tr>
+        <!-- Rows for exam details -->
+        <tr>
+          <td>CE43120</td>
+          <td>Air,Water and Noise pollution</td>
+          <td>23-02-2023:FN</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+            <td>CS44112</td>
+            <td>Artificial Intelligence</td>
+            <td>01-03-2023:AN</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CS44113</td>
+            <td>Computer Networks</td>
+            <td>27-02-2023:AN</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CS44114</td>
+            <td>Automata theory and compiler Design</td>
+            <td>23-02-2023:AN</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CS44115</td>
+            <td>Design and Analysis of Algorithms</td>
+            <td>03-03-2023:AN</td>
+            <td></td>
+            <td></td>
+          </tr>
+        <!-- Repeat rows as needed -->
+      </table>
+    </div>
+    <div class="instructions">
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Please arrive at the examination centre 20 minutes prior to the scheduled time of the examination.</li>
+        <li>Please bring only BLUE/BLACK pen for examination purposes. Mobile Phones/any Electronics gadgets/Smartwatches are not allowed.</li>
+        <li>Sharing of Pen/Pencil/Calculator, etc. is NOT allowed.</li>
+        <li>Please submit the answer sheet before leaving the Examination Hall.</li>
+        <li>Please ensure that the Invigilator has signed your answer sheet; otherwise, the answer sheet will be rejected.</li>
+        <li>If found cheating or any discrepancy during the examination, the candidature will be rejected.</li>
+        <li>No student is allowed after 15 minutes of commencement. Please bring ID Card & Admit Card in the Exam hall.</li>
+      </ol>
+    </div>
+  <div class="downloadButton">
+      <button id="downloadButton">Download Admit Card</button>
+      </div>
+    
+  </div>
+  
+  <!-- Add html2pdf.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('downloadButton').addEventListener('click', function() {
+      const element = document.querySelector('.container');
+      
+      html2pdf().from(element).save('admit_card.pdf');
+    });
+  </script>
+</body>
+</html>

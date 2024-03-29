@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College placement</title>
+    <!-- css -->
+    {{!-- <link rel="stylesheet" href="placement.css"> --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.15.0/font/bootstrap-icons.css" rel="stylesheet">
+     <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.menu-bar {
+   
+    background-color: #fff;
+}
+
+.nav-link{
+    font-size: 16px;
+    color: #000 !important;
+}
+.navbar-nav{
+    text-align: right;
+}
+.menu-bar .navbar-toggler{
+padding-right: 0;
+border: none;
+outline: none;
+}
+.banner{
+    height: 80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.shiksha.com/mediadata/images/1509627375phpPbeawb.jpeg");
+    background-position: center;
+    color: #fff;
+}
+
+.banner h1{
+    padding-top: 170px;
+    font-size: 50px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    text-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.search-job{
+    margin: 30px 0;
+    margin: -50px 6% 50px;
+    background-color: #7C93C3;
+
+}
+.search-job .form-control{
+    max-width: 250px;
+    display: inline-flex;
+    margin: 10px 5px;
+    border-radius: 0;
+    box-shadow: none !important;
+    border: none !important;
+
+}
+.search-job .btn-primary{
+  border-radius:none ;
+  box-shadow: none !important;
+  border: none;
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px
+}
+/* top recruiter */
+#recruiters{
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+#recruiters h3{
+  text-align: center;
+  padding-bottom: 40px;
+}
+h3::before{
+    content: '';
+    background-color: #7C93C3;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    z-index: -10;
+    margin-top: -15px;
+    border-top-left-radius:70px;
+    border-bottom-right-radius:90px ;
+}
+#recruiters img{
+  max-width: 100px;
+  margin: 10px 20px;
+}
+.experience-box img,
+    .comment-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px; /* Add border-radius for a rounded appearance */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        transition: transform 0.3s, box-shadow 0.3s; /* Add transitions for a smoother effect */
+    }
+
+    .experience-box:hover img,
+    .comment-box:hover img {
+        transform: scale(1.1); /* Add a slight zoom effect on hover */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+    }
+
+    /* Adjust the width of the experience and comment boxes */
+    .experience-box,
+    .comment-box {
+        width: 100%;
+        max-width: 300px; /* Set a maximum width for better readability */
+    }
+
+    /* Center align the experience and comment boxes */
+    .experience-box,
+    .comment-box {
+        margin: 10px auto;
+    }
+
+    /* Ensure a consistent margin between boxes */
+    .experience-box + .experience-box,
+    .comment-box + .comment-box {
+        margin-left: 20px;
+    }
+
+    /* Additional styles for the testimonial images */
+    .profile-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    /* Additional styles for the site stats icons */
+    .stats-box .fa {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+
+/* --------------------redcent jobs----- */
+
+#jobs{
+    background-color: #f8f8fa;
+    padding: 50px 0;
+
+}
+.company-details{
+    box-shadow: 0 2px 70px 0 rgba(110,130,208,.18);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.job-updates{
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.job-updates .fa{
+    margin-top: 5px;
+    margin-right: 10px;
+    color: #77d1b1;
+}
+.job-updates small{
+    background: #efefef;
+    padding: 1px 5px;
+    margin: 0 5px;
+}
+.job-updates p{
+    margin-bottom: 0 !important;
+
+}
+.job-updates a{
+    text-decoration: none !important;
+    color: #b6bed2;
+    float: right;
+}
+.apply-btn{
+ height: 40px;
+ background-color:#265073;
+ padding: 7px;
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+}
+.apply-btn .btn-primary{
+    padding: 0 30px;
+    float: right;
+    border-radius: 0;
+    box-shadow: none !important;
+    background: transparent;
+    border: 1px solid #fff;
+}
+
+.pagelink li{
+    height: 25px;
+    width: 25px;
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.pagelink li:hover, .active{
+    color: #fff;
+    background: #265073;
+}
+.left-arrow{
+    color: #999;
+}
+.right-arrow{
+ color: #999;
+}
+
+/* site stats */
+#site-stats{
+    padding: 100px 0;
+
+}
+#site-stats h3{
+ margin-bottom: 30px;
+}
+.stats-box{
+ padding: 30px;
+ border-radius: 10px;
+ margin: 20px 0;
+ background-color: #cde5f7;
+ color:black;
+ box-shadow: 0 2px 40px 0 rgba(110,130,208,.18);
+}
+.stats-box .fa{
+    font-size: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.testimonial_section{
+    background-color: var(--light-color);
+    padding-bottom: 8rem;
+}
+.testimonial_section .carousel-indicators{
+    bottom: -6rem;
+}
+.testimonial_section .carousel-indicators button{
+    background-color: var(--dark-color);
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius:50%;
+}
+.testimonial_section .card{
+    background: url('images4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: right;
+    padding: 5rem 5rem 5rem 0;
+    border-radius: 0 .5rem .5rem 0;
+    border: 0.1rem solid transparent;
+}
+.testimonial_section .profile-box{
+    padding: 1.875rem;
+    background-color: var(--dark-color);
+    border-radius: .5rem 0 0.5rem;
+}
+.testimonial_section .profile-box img{
+    border-radius: .625rem 3.125rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.testimonial_section .desc-box{
+    padding-left:2.5rem;
+}
+
+
+
+.experience-box {
+    border: 1px solid #ccc;
+    padding: 25px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .experience-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    
+  }
+
+  .comment-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .comment-box img {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .experience-box,
+.comment-box {
+  border: 1px solid #ccc;
+  padding: 10px; /* Reduce padding */
+  margin: 10px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  border-radius: 10px; /* Add border-radius for a rounded appearance */
+}
+
+.experience-box img,
+.comment-box img {
+  max-width: 50px; /* Reduce image size */
+  height: 50px; /* Set a fixed height for circular images */
+  border-radius: 50%; /* Make the images circular */
+  margin-bottom: 10px;
+}
+
+.experience-box:hover,
+.comment-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+  transform: translateY(-5px); /* Add a slight lift effect on hover */
+}
+
+     </style>
+</head>
+
+<body>
+    <!--  -->
+    <section id="header">
+        <div class="menu-bar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"></a>
+                                   
+                  
+                </div>
+            </nav>
+        </div>
+        <div class="banner text-center">
+         <h1>College Placement</h1>
+         <p>Explore here</p>
+        </div>
+    </section>
+     
+
+     <!-- top recruiter -->
+     <section id="recruiters">
+        <div class="container text-center">
+          <h3>TOP RECRUITER</h3>
+          <div>
+            <img src="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/amazon-png-logo-vector-1.png" alt="">
+            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWCZER?ver=1433&q=90&m=6&h=195&w=348&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="">
+            <img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/07/HP_Blue_RGB-1022x1024.png" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtMEMqpYJYVvD1Oux4cZpgvqMMyiaM2tAA9xXNy6z3g&s" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ82xC9CD3L0_ew0KCvWJ-DIyf8_Jk5zF21z4BeDzIbzw&s" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YUua9HdsfIRTC9Zn4LVF3iPjsIy5lAujDciF19zwsE58th6v_gR2GY6MRl_HszxPnHY&usqp=CAU" alt="">
+          </div>
+          <div>
+            <img src="data:image/png;base64,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" alt="">
+            <img src="data:image/png;base64,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" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTWjNvQy63gzwtZsczGABZJtUZzHBvKcQK4uGtoF4KjyovnOIj4Kk4AU0TkUcYJMtmOw&usqp=CAU" alt="">
+            <img src="https://www.interviewbit.com/blog/wp-content/uploads/2021/07/Uber-Logo-1024x356.png" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7ExVxFQeGUbfa6023oqCPP3SrSU1FPElZFpVnFBVmfBcHTeWnxuqgB4wxuRnfPRqIZJA&usqp=CAU" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNEwJ3Erw-Rmc9hS2Sdzxr3mdFlEThwC0PQ&usqp=CAU" alt="">
+            <img src="https://media.licdn.com/dms/image/D560BAQGiz5ecgpCtkA/company-logo_200_200/0/1688684715866/ibm_logo?e=2147483647&v=beta&t=3XhiNuPsEZ_X75UzbTzTp0ra-lTt_mEMMeXIx9JBQ3w" alt="">
+          </div>
+        </div>
+     </section>
+
+     <!-- recent jobs -->
+     <section id="jobs">
+        <div class="container">
+            <h5 style="color: #265073; font-weight: 600; padding-bottom:10px ;">RECENT UPDATES</h5>
+        
+            <div class="company-details">
+                <div class="job-updates">
+                    <h4><b>Software Developer</b></h4>
+                <p>VISA</p>
+                    <i class="fa fa-briefcase"></i><span>0-1 yrs</span><br>
+                    <i class="fa fa-inr"></i><span>1 Lacs p.m.</span><br>
+                    <i class="fa fa-map-marker"></i><span>Banglore</span>
+                    <p>Skills <i class="fa fa-angle-double-right"></i><small>java</small> <small>python</small><small>HTML,CSS</small> <small>DSA</small></p>
+                    <p>Description<i class="fa fa-angle-double-right"></i>For Freshers currently in 2025
+                    <a href="https://usa.visa.com/careers/university-recruiting.html">Read more</a></p>
+                </div>
+                <div class="apply-btn">
+                    <button type="button" class="btn btn-primary"><a href="https://tnp.nitp.ac.in/" style="color: white; text-decoration: none;">Apply</a></button>
+                </div>
+            </div>
+
+        <div class="company-details">
+            <div class="job-updates">
+                <h4><b>Software Developer</b></h4>
+                <p>Google</p>
+                <i class="fa fa-briefcase"></i><span>0-1 yrs</span><br>
+                <i class="fa fa-inr"></i><span>1.5 Lacs p.m.</span><br>
+                <i class="fa fa-map-marker"></i><span>Banglore</span>
+                <p>Skills <i class="fa fa-angle-double-right"></i><small>java</small> <small>python</small><small>DSA</small> <small>Problem Solver</small></p>
+                <p>Description<i class="fa fa-angle-double-right"></i>For Freshers currently in 2025
+                <a href="https://buildyourfuture.withgoogle.com/internships">Read more</a></p>
+            </div>
+            <div class="apply-btn">
+                <button type="button" class="btn btn-primary"><a href="https://tnp.nitp.ac.in/" style="color: white; text-decoration: none;">Apply</a></button>
+            </div>
+        </div>
+
+        <div class="company-details">
+            <div class="job-updates">
+                <h4><b>Software Developer</b></h4>
+                <p>IBM</p>
+                <i class="fa fa-briefcase"></i><span>0-1 yrs</span><br>
+                <i class="fa fa-inr"></i><span>15 Lacs p.m.</span><br>
+                <i class="fa fa-map-marker"></i><span>Banglore</span>
+                <p>Skills <i class="fa fa-angle-double-right"></i><small>java</small> <small>python</small><small>DSA</small> <small>Problem Solver</small></p>
+                <p>Description<i class="fa fa-angle-double-right"></i>For Freshers currently in 2024
+                <a href="https://www.ibm.com/careers/in-en/early-career/internship/">Read more</a></p>
+            </div>
+            <div class="apply-btn">
+                <button type="button" class="btn btn-primary"><a href="https://tnp.nitp.ac.in/" style="color: white; text-decoration: none;">Apply</a></button>
+            </div>
+        </div>
+
+        <div class="company-details">
+            <div class="job-updates">
+                <h4><b>Software Developer</b></h4>
+                <p>Microsoft</p>
+                <i class="fa fa-briefcase"></i><span>0-1 yrs</span><br>
+                <i class="fa fa-inr"></i><span>1.5 Lacs p.m.</span><br>
+                <i class="fa fa-map-marker"></i><span>Banglore</span>
+                <p>Skills <i class="fa fa-angle-double-right"></i><small>java</small> <small>python</small><small>DSA</small> <small>Problem Solver</small></p>
+                <p>Description<i class="fa fa-angle-double-right"></i>For Freshers currently in 2025
+                <a href="https://careers.microsoft.com/v2/global/en/students">Read more</a></p>
+            </div>
+            <div class="apply-btn">
+                <button type="button" class="btn btn-primary"><a href="https://tnp.nitp.ac.in/" style="color: white; text-decoration: none;">Apply</a></button>
+            </div>
+        </div>
+
+        
+        
+
+     <ul class="pagelink text-center">
+        <li class="left-arrow">&#8592;</li>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="right-arrow">&#8592;</li>
+     </ul>
+    </div>
+     </section>
+
+
+      <!-- site stats -->
+      <section id="site-stats">
+        <div class="container text-center">
+            <h3>Students Placed</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <i class="fa fa-user-o"></i><span>500+</span>
+                                <p>As Intern</p>
+                            </div>
+                        </div>
+     
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <i class="fa fa-slideshare"></i><span>250+</span>
+                                <p>Placed</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <i class="fa fa-hand-peace-o"></i><span>300+</span>
+                                <p>Offcampus</p>
+                            </div>
+                        </div>
+     
+                        <div class="col-6">
+                            <div class="stats-box">
+                                <i class="fa fa-building-o"></i><span>500k+</span>
+                                <p>Campanies</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      
+
+      <div class="testimonial_section">
+        <div class="container">
+          <div class="row pb-5">
+            <div class="col-12 text-center">
+            <h2 class="section-title">Record Breaking Placement Of NIT Patna</h2>
+            <p class="section-subtitle">NIT Patna sets records with an unprecedented placement season, marking a pinnacle of success for both students and the institution. Congratulations to all for this historic achievement!.Let's Connect For more Details <a href="https://www.linkedin.com/company/tpc-nit-patna/?originalSubdomain=in" style="text-decoration: none; color: #000;background-color: aquamarine;">Linkdean</a></p>
+        
+          </div>
+        </div>
+     
+
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-md-10">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                 <div class="d-sm-flex row">
+                  <div class="profile-box col-sm-5">
+                    <img src="data:image/jpeg;base64,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" class="img-fluid">
+                  </div>
+                  <div class="card col-sm-7">
+                    <div class="desc-box">
+                      <p class="fst-italic">"Excited to share that I've secured an off-campus placement at [Company Name] after graduating from NIT Patna! Grateful for the education and experiences that prepared me for this opportunity. Looking forward to contributing my skills and expertise to the company's success. This journey has been a testament to the quality of education at NIT Patna and the support of mentors. Ready for the next chapter!"</p>
+                      <div class="my-4">
+                        <h4>Aditi Kumari</h4>
+                        <div class="m-0 text-white">ECE Department</div>
+                      </div>
+                     
+  
+                    </div>
+  
+                  </div>
+                 </div>
+                </div>
+              
+                <div class="carousel-item">
+                  <div class="d-sm-flex row">
+                   <div class="profile-box col-sm-5">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8MGSZ_PnFirC4-klZDd45eabzqNgUi2jWjRDzuBzPwhz5CNmmOS9qgG95Zy3XXUoAbN0&usqp=CAU" class="img-fluid">
+                   </div>
+                   <div class="card col-sm-7">
+                     <div class="desc-box">
+                       <p class="fst-italic">Thrilled to announce my off-campus placement at Google after graduating from NIT Patna! It's an honor to join a company at the forefront of innovation, and I'm eager to contribute my skills to exciting projects. Grateful for the support from NIT Patna and excited about the opportunities ahead. Ready to embark on this journey with Google and make meaningful contributions in the world of technology!
+                      </p>
+                       <div class="my-4">
+                         <h4>Priya</h4>
+                         <div class="m-0 text-white">CSE Department</div>
+                       </div>
+                       
+   
+                     </div>
+   
+                   </div>
+                  </div>
+                 </div>
+  
+                 <div class="carousel-item">
+                  <div class="d-sm-flex row">
+                   <div class="profile-box col-sm-5">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw1oubK8719OKcarodyWvPJbEIBZrGVSszyJFF1VnsuqlESgHElu4PCVb1s2kPFLMyh3o&usqp=CAU" class="img-fluid">
+                   </div>
+                   <div class="card col-sm-7">
+                     <div class="desc-box">
+                       <p class="fst-italic">"I am thrilled to share my experience as a software intern at IBM during my time at NIT Patna. Joining IBM has been a significant milestone in my academic journey. The challenging yet rewarding selection process prepared me for the dynamic work environment that awaited.
+
+                        I am grateful for the learning opportunities, mentorship, and the overall supportive environment at IBM. "</p>
+                       <div class="my-4">
+                         <h4>Surbhi Kumari</h4>
+                         <div class="m-0 text-white">CSE department</div>
+                       </div>
+                      
+   
+                     </div>
+   
+                   </div>
+                  </div>
+                 </div>
+  
+  
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+  
+        </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          <!-- Box 1 -->
+          <div class="col-md-4">
+            <div class="experience-box">
+              <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/nit_patna_package_1200x768.jpeg?VersionId=i_yy5Bevk3kanBKddxzrvCYmx.kONz5m&size=690:388" alt="Experience 1">
+              <p>On-Campus Placement</p>
+              <p>Company Name: IBM</p>
+              <p>Position: Software Engineer</p>
+            </div>
+          </div>
+    
+          <!-- Box 2 -->
+          <div class="col-md-4">
+            <div class="experience-box">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfHKvPAUtYWwI7xdkLQ7fk2MfV19np3KPu5g&usqp=CAU" alt="Experience 2">
+              <p>On-Campus Internship</p>
+              <p>Company Name: Google</p>
+              <p>Position: Software Engineer</p>
+            </div>
+          </div>
+    
+          <!-- Box 3 -->
+          <div class="col-md-4">
+            <div class="experience-box">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxEz22VYJtzU8pcqDu83yBG-2X_yqFhr-WOJ-Xbt7vaqjA7G41Ea0AT3f3K_PMla0zxU&usqp=CAU" alt="Experience 3">
+              <p>On-Campus Placement</p>
+              <p>Company Name: Amazon</p>
+              <p>Position: Support Engineer</p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Comment Section -->
+        <div class="row pt-3" id="commentsRow">
+          <!-- Existing comments will be inserted here -->
+        </div>
+    
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Let's share Who get placement or internship </h2>
+            <form id="commentForm">
+              <div class="mb-3">
+                <label for="comment">Write your comment:</label>
+                <textarea class="form-control" id="comment" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="photo">Upload your photo:</label>
+                <input type="file" class="form-control" id="photo" accept="image/*">
+              </div>
+              <button type="button" class="btn btn-primary" onclick="submitComment()">Submit Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <script>
+        function submitComment() {
+          var commentText = document.getElementById("comment").value;
+          var photoInput = document.getElementById("photo");
+          var photoUrl = "";
+      
+          if (photoInput.files.length > 0) {
+            var photo = photoInput.files[0];
+            photoUrl = URL.createObjectURL(photo);
+          }
+      
+          var commentContainer = document.createElement("div");
+          commentContainer.classList.add("col-md-4", "experience-box"); // Use the same style as experience-box
+      
+          if (photoUrl !== "") {
+            var photoElement = document.createElement("img");
+            photoElement.src = photoUrl;
+            photoElement.style.maxWidth = "100%"; // Ensure the image doesn't exceed the container width
+            commentContainer.appendChild(photoElement);
+          }
+      
+          var commentParagraph = document.createElement("p");
+          commentParagraph.textContent = commentText;
+          commentContainer.appendChild(commentParagraph);
+      
+          var commentsRow = document.getElementById("commentsRow");
+          var commentRow = commentsRow.lastElementChild;
+      
+          // Check if the current row is undefined or already contains 3 elements
+          if (!commentRow || commentRow.childElementCount === 3) {
+            commentRow = document.createElement("div");
+            commentRow.classList.add("row");
+            commentsRow.appendChild(commentRow);
+          }
+      
+          commentRow.appendChild(commentContainer);
+      
+          // Clear form fields
+          document.getElementById("commentForm").reset();
+        }
+      </script>
+      
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+</body>
+</html>

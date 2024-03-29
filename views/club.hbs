@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif, 'Arial';
+    background: #f0f3fa;
+    overflow-x: hidden;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.top-header {
+    background: #2196f3;
+    padding: 5px 0;
+    border-bottom: 1px solid #3131315e;
+}
+
+.slider-width {
+    width: 100%;
+    height: 80vh;
+}
+
+/* for blinking new */
+@keyframes blink {
+    0% { color: red; }
+    50% { color: transparent; }
+    100% { color: red; }
+}
+
+.blinking-text {
+    animation: blink 1s infinite;
+}
+
+.text {
+    font-size: 14px;
+    background-color: rgb(244, 241, 241);
+    border-radius: 5px;
+}
+
+/* Common styles for sections */
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.width-33 {
+    width: 100%; /* Full width on smaller screens, change back to 33% if needed */
+    float: left;
+    margin-bottom: 30px;
+    padding-left: 10px;
+}
+
+.section {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #fff;
+    padding: 20px;
+}
+
+.heading-sect {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    border: 1px solid #cfcfcf;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #265073;
+    color: white;
+}
+
+.head-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+/* Latest News Section */
+.latest-news {
+    height: auto; /* Adjust the height as needed */
+}
+
+.latest-news-ul {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6; /* Adjust line-height for better readability */
+}
+
+/* Upcoming Events Section */
+.upcoming-event-list {
+    padding: 0;
+    list-style: none;
+}
+
+.upcoming-event-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+
+.event-date {
+    background: #265073;
+    width: 30px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+/* Notice Board Section */
+.notice-board-list {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6; /* Adjust line-height for better readability */
+}
+
+.notice-board-list li {
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+    .width-33 {
+        width: 33%;
+    }
+}
+
+.upcoming-webinar {
+    background-color: #265073;
+    color: #ffffff;
+    padding: 10px; /* Optional: Add padding for better visual appearance */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+    </style>
+</head>
+<body>
+   
+<!-- Your existing content -->
+
+<div class="width-100">
+    <img src="https://images.collegexpress.com/article/Exploring-Extracurricular-Activities-in-College-How-to-Find-the-Best-Opportunities.jpg" alt="" class="slider-width">
+</div>
+
+<div class="width-100 margin-top-50">
+    <div class="container">
+        <div class="row">
+
+            <!-- Latest News Section -->
+            <div class="col-12 col-md-4">
+                <div class="latest-news section">
+                    <div class="heading-sect">
+                        <h3 class="head-title">
+                            Latest News
+                        </h3>
+                    </div>
+                    <marquee  direction="up">
+                        <ul class="latest-news-ul">
+                            <li>November 24, 2023 - Introduction to a new project <span class="blinking-text text">New</span></li>
+                            <li>December 5, 2023 - Team collaboration workshop <span class="blinking-text text">New</span></li>
+                            <li>January 10, 2024 - Product launch event <span class="blinking-text text">New</span></li>
+                            <li>February 18, 2024 - Annual conference announcement <span class="blinking-text text">New</span></li>
+                            <li>March 5, 2024 - Recruitment drive details <span class="blinking-text text">New</span></li>
+                            <li>April 15, 2024 - Guest speaker session on industry trends <span class="blinking-text text">New</span></li>
+                            
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+
+            <!-- Upcoming Events Section -->
+            <div class="col-12 col-md-4">
+                <div class="event-list section">
+                    <div class="heading-sect">
+                        <h3 class="head-title">
+                            Upcoming Events
+                        </h3>
+                    </div>
+                    <ul class="upcoming-event-list">
+                        <li><span class="event-date">15<br> Oct</span><span>Workshop on Web Development Technologies.</span></li>
+                        <li><span class="event-date">22<br> Nov</span><span>Guest lecture on Artificial Intelligence.</span></li>
+                        <li><span class="event-date">10<br> Dec</span><span>Coding Competition - Showcase your skills!</span></li>
+                        <li><span class="event-date">5<br> Jan</span><span>New Year Celebration and Networking Event.</span></li>
+                       
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Notice Board Section -->
+            <div class="col-12 col-md-4">
+                <div class="notice-board section">
+                    <div class="heading-sect">
+                        <h3 class="head-title">
+                            Notice Board
+                        </h3>
+                    </div>
+                    <ul class="notice-board-list">
+                        <li> Product Launch - Introducing our latest innovation.<span class="blinking-text text">New</span></li>
+                        <li> Holiday Sale - Exclusive discounts for a limited time.
+                            <span class="blinking-text text">New</span></li>
+                        <li> Winter Workshop Series - Explore new skills this season.<span class="blinking-text text">New</span></li>
+                        <li> Community Meetup - Connect with like-minded individuals.<span class="blinking-text text">New</span></li>
+                        <li> Spring Fashion Show - Unveiling the latest trends.<span class="blinking-text text">New</span></li>
+                       
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Section: Our Upcoming Events -->
+        <div class="row pt-2 pb-5">
+            <div class="col-12 ">
+                <h3 class="section-heading upcoming-webinar">Your Upcoming Hackathons</h3>
+            </div>
+            <!-- Image 1 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTioE5wIhkg_Z0Jc91G-yrPnBo2yW2siWyKNA&usqp=CAU" alt="Event 1" class="img-fluid larger-image" />
+            </div>
+            <!-- Image 2 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFOvn88G7av0aZ5Lo1zRqDmuIq01IWO1BRVA&usqp=CAU" alt="Event 2" class="img-fluid larger-image" />
+            </div>
+            <!-- Image 3 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0eVbnVPWTu0R6W2XVH3B3Lpzgz9QZuLt8uyG2-0cow2b8Y11fljYrP_Zae7qDk3O0g8&usqp=CAU" alt="Event 3" class="img-fluid larger-image" />
+            </div>
+        </div>
+
+        <div class="row pt-2 pb-5 ">
+            <div class="col-12">
+                <h3 class="section-heading upcoming-webinar"> Your Upcoming Webinar</h3>
+            </div>
+            <!-- Image 1 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://media.licdn.com/dms/image/D4D22AQHtIHyijsAhxw/feedshare-shrink_800/0/1692287247133?e=2147483647&v=beta&t=pdAQvF10rzyVvgNN7UFq4cZTfLLshwObf5J-75iwvAA" alt="Event 2" class="img-fluid larger-image" alt="Event 1" class="img-fluid larger-image" />
+            </div>
+            <!-- Image 2 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://media.licdn.com/dms/image/D4D22AQFcq3GE6zvq4g/feedshare-shrink_800/0/1681591986847?e=2147483647&v=beta&t=eaK89s1Hy5oq8QdrOabg8bGArN9ENQB4VBmaXDLks58" alt="Event 2" class="img-fluid larger-image" />
+            </div>
+            <!-- Image 3 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://media.licdn.com/dms/image/D4D22AQHtIHyijsAhxw/feedshare-shrink_800/0/1692287247133?e=2147483647&v=beta&t=pdAQvF10rzyVvgNN7UFq4cZTfLLshwObf5J-75iwvAA" alt="Event 3" class="img-fluid larger-image" />
+            </div>
+        </div>
+
+        <div class="row pt-2 pb-5">
+            <div class="col-12">
+                <h3 class="section-heading upcoming-webinar">Upcoming Cultural Programme</h3>
+            </div>
+            <!-- Image 1 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://static.toiimg.com/thumb/msid-67665412,imgsize-179281,width-400,resizemode-4/67665412.jpg" alt="Event 1" class="img-fluid larger-image" />
+            </div>
+            <!-- Image 2 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://static.toiimg.com/thumb/msid-67665412,imgsize-179281,width-400,resizemode-4/67665412.jpg" />
+            </div>
+            <!-- Image 3 -->
+            <div class="col-12 col-sm-4">
+                <img src="https://static.toiimg.com/thumb/msid-67665412,imgsize-179281,width-400,resizemode-4/67665412.jpg" alt="Event 3" class="img-fluid larger-image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap JS and Popper.js scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+=

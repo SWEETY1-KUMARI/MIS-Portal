@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+ 
+}
+#logo{
+    width:150px;
+    height:150px;
+    border-radius: 100px;
+}
+.text{
+    padding:0;
+    margin:0;
+  
+}
+#admitcard{
+    text-align:center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgb(126, 192, 236)
+  
+  ;
+ 
+}
+.desc{
+    color:rgb(53, 7, 106);
+}
+.header {
+margin:0;
+padding :10px;
+text-align: center;
+  display:flex;
+  flex-wrap: column;
+  justify-content: center;
+  line-height: 0.85;
+  
+}
+.header-container{
+    background-color:rgb(196, 244, 244);
+
+}
+.name{
+    color:rgb(63, 14, 108);
+    text-align: center;
+}
+.form-section {
+    width:45%;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+
+    .form-container {
+      display: flex;
+     
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap:wrap;
+    }
+    
+    .form-section label,
+    .form-section input,
+    .form-section select,
+    .form-section textarea {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-section input,
+    .form-section select,
+    .form-section textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+    }
+    .form-section input[type="text"],
+        .form-section input[type="tel"],
+        .form-section input[type="email"],
+        .form-section input[type="password"],
+        .form-section select,
+        .form-section textarea {
+            font-size: large;
+            font-weight: 500;
+            width: calc(100% - 12px);
+            padding: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border-radius: 2px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Added background to transition */
+        }
+       .form-section input[type="text"],
+        .form-section input[type="tel"],
+        .form-section input[type="email"],
+        .form-section input[type="password"],
+        .form-section select,
+        .form-section textarea:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+        }
+        
+
+    .form-section textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-section:last-child {
+      margin-right: 0;
+    }
+
+    .form-section:nth-child(odd) {
+      margin-right: 10px;
+    }
+
+    .form-section:nth-child(even) {
+      margin-left: 10px;
+    }
+    
+
+    .form-section input[type="submit"] {
+      width: auto;
+      padding: 8px 20px;
+      cursor: pointer;
+      background-color: fff;
+      border-radius: 20px; /* Slightly more rounded corners */
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Added background to transition */
+      
+    }
+
+    .form-section input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .head-name{
+        color:rgb(48, 15, 78);
+        text-decoration:underline;
+    }
+    input{
+
+        font-size: large;
+    }
+   #submit{
+    display:flex;
+    justify-content: center;
+    margin-left: 180px;
+   }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <div class="header">
+                <img src="https://www.nitp.ac.in/static/logo512-579d034908ae89b5e0243d1274937d5d.png" alt="College Logo" id="logo">
+                <div class="text">
+                  <h2 id="collegename">राष्ट्रीय प्रौद्योगिकी संस्थान,पटना </h2>
+                  <h2 id="collegename">National Institute of Technology,Patna</h2>
+                  <p class="desc"><i>(An institute under Ministry of HRD, Govt. of India)</i></p>
+                  <p class="desc">Ashok Rajpath, Patna, Bihar-800005</p>
+                </div>
+              </div>
+        </div>
+
+      
+        <h2 class="name"><u>Faculty Entry Form</u></h2>
+        <h2 class="head-name"> Personal Information and Details</h2>
+        <div class="form-container" action="/facultyprofile" method="POST">
+            <div class="form-section">
+              <label for="firstname">First Name:</label>
+              <input type="text" id="firstname" name="fname" value="{{user.fname}}" >
+              <label for="department">Department:</label>
+              <input type="text" id="department" name="dname" value="{{user.dname}}" >
+              <label for="contact_no">Contact No.:</label>
+              <input type="tel" id="contact_no" name="mobileno" value="{{user.mobileno}}" >
+              <label for="gender">Gender</label>
+              <input type="text" id="gender" name="gender" value="{{user.gender}}" >
+              
+              {{!-- <label for="gender">Gender:</label>
+              <select id="gender" name="gender" value="{{user.gender}}" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select> --}}
+              {{!-- <label for="Adharno">Aadhar No.:</label>
+              <input type="text" id="Adharno" name="Aadharno" value="{{user.aadharno}}" required> --}}
+              
+              </div>
+              <div class="form-section">
+                {{!-- <label for="lastname">Last Name:</label>
+              <input type="text" id="lastname" name="lname" value="{{user.lname}}" required>
+               --}}
+              {{!-- <label for="religion">Religion:</label>
+              <input type="text" id="religion" name="religion" value="{{user.religion}}" required> --}}
+              <label for="email">Email ID:</label>
+              <input type="email" id="email" name="email" value="{{user.email}}" required>
+              <label for="dob">DOB:</label>
+              <input type="date" id="dob" name="dob" value="{{user.dob}}" required>
+               <label for="Adharno">Aadhar No.:</label>
+              <input type="text" id="Adharno" name="Aadharno" value="{{user.aadharno}}" required>
+              <label for="nationality">Nationality:</label>
+              <input type="tel" id="nationality" name="nationality" value="{{user.nationality}}" >
+              
+            </div>
+        </div>
+            <h2 class="head-name">Address Details</h2>
+            <div class="form-container">
+            <div class="form-section">
+              <label for="permanent_address">Address:</label>
+              <input type="text" id="permanent_address" name="address" value="{{user.address}}" required>
+              
+              
+              <label for="permanent_state">State:</label>
+              <input type="text" id="permanent_state" name="state" value="{{user.state}}" required>
+              
+              </div>
+              <div class="form-section">
+                <label for="permanent_district">District:</label>
+              <input type="text" id="permanent_district" name="district" value="{{user.district}}" required>
+              <label for="permanent_pincode">Pincode:</label>
+              <input type="text" id="permanent_pincode" name="pincode" value="{{user.pincode}}" required>
+              </div>
+        
+    
+</div>
+</body>
+</html>

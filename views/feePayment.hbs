@@ -1,0 +1,158 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+          
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #phoneInput, #otpInput, #paymentSuccessMessage {
+            display: none;
+        }
+
+        #otpMessage {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Payment Form</h2>
+        <form id="paymentForm">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" required>
+
+            <label for="email">Your Email ID</label>
+            <input type="email" id="email" required>
+
+            <label for="fathersName">Father's Name</label>
+            <input type="text" id="fathersName" required>
+
+            <label for="rollNumber">Roll Number</label>
+            <input type="text" id="rollNumber" required>
+
+            <label for="purpose"> Semester</label>
+            <select id="purpose">
+                <option value="sem1">Semester 1</option>
+                <option value="sem2">Semester 2</option>
+                <option value="sem1">Semester 3</option>
+                <option value="sem2">Semester 4</option>
+                <option value="sem1">Semester 5</option>
+                <option value="sem2">Semester 6</option>
+                <option value="sem1">Semester 7</option>
+                <option value="sem2">Semester 8</option>
+                <option value="mtech">M.Tech</option>
+                <option value="phd">PhD</option>
+            </select>
+
+            <label for="purpose">Department</label>
+            <select id="purpose">
+                <option value="tuition">CSE</option>
+                <option value="books">ECE</option>
+                <option value="other">Civil</option>
+                <option value="tuition">Mechanical</option>
+                <option value="books">Electrical</option>
+                <option value="other">Mtech</option>
+                <option value="tuition">PHD</option>
+                <option value="books">Mtech+Btech</option>
+            </select>
+
+            <label for="purpose">Purpose of Fee Payment</label>
+            <select id="purpose">
+                <option value="tuition">UG semester Payment</option>
+                <option value="tuition">PG/M-Tech Payment</option>
+                <option value="tuition">PHD semester Payment</option>
+                <option value="books">UG/PG hostel/Fee Payment</option>
+                <option value="other">Miscelleneous </option>
+            </select>
+
+            <!-- Pay Now Button -->
+            <button type="button" onclick="initiatePayment()">Pay Now</button>
+
+            <!-- Step 1: Phone Number -->
+            <div id="phoneInput">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+                <button type="button" onclick="requestOTP()">Send OTP</button>
+            </div>
+
+            <!-- Step 2: OTP -->
+            <div id="otpInput">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" required>
+                <button type="button" onclick="confirmPayment()">Confirm Payment</button>
+                <p id="otpMessage"></p>
+            </div>
+
+            <!-- Payment Success Message -->
+            <div id="paymentSuccessMessage">Just do Payment from your Phone and and download Your receipt after few minutes.</div>
+        </form>
+    </div>
+
+    <script>
+        function initiatePayment() {
+          
+            document.getElementById('phoneInput').style.display = 'block';
+        }
+
+        function requestOTP() {
+            
+            var otp = Math.floor(1000 + Math.random() * 9000);
+
+            
+            document.getElementById('otpInput').style.display = 'block';
+            document.getElementById('otpMessage').innerText = 'OTP sent to your phone. Please check and proceed.';
+        }
+
+        function confirmPayment() {
+          
+            alert('Check Your Online Payment App');
+
+          
+            document.getElementById('paymentSuccessMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ICONS -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- STYLESHEET -->
+    {{!-- <link rel="stylesheet" href="style1.css" /> --}}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <title>Sidebar</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+body{
+    background-color: #fff;
+}
+
+.width-100 {
+    width: 100%;
+    float: left;
+  }
+  
+  .container1{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0px auto;
+  }
+  
+  
+  .top-header {
+    background:#2D9596;
+    padding: 8px 0px;
+    border-bottom: 1px solid #89CFF3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+   
+  }
+  .news-list {
+    color: #ffffff;
+    width: 100%;
+    font-size: 20px;
+  }
+.container{
+    width: 100%;
+    min-width: 100vh;
+}
+.sidebar{
+    position: relative;
+    width: 256px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #265073;
+    margin-top: 25px;
+    padding: 24px;
+    position: fixed;
+    
+}
+.sidebar .head{
+    display: flex;
+    gap: 20px;
+    padding-bottom:20px ;
+    border-bottom: 1px solid #f6f6f6;
+}
+.user-img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.user-img img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.user-details .title,
+.menu .title{
+    font-size: 12px;
+    font-weight: 500;
+    color: #ECF4D6;
+    text-transform:uppercase;
+    margin-bottom: 5px;
+
+}
+.user-details .name{
+    font-size: 15px;
+    font-weight: 500;
+}
+.nav{
+    flex:1;
+}
+.menu ul li{
+    position: relative;
+    list-style: none;
+    margin-bottom:2px ;
+
+}
+.menu ul li a{
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 15px;
+font-weight: 500;
+color:#ECF4D6;
+transition: all 0.3s;
+text-decoration: none;
+padding: 12px 8px;
+border-radius: 8px;
+}
+.menu ul li> a:hover ,
+.menu ul li:active> a{
+    color:#ECF4D6;
+    background-color: #9AD0C2;
+}
+.menu ul li .icon{
+  font-size: 20px;
+}
+.menu ul li .text{
+    flex: 1;
+}
+.menu ul li .arrow{
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.menu ul li.active .arrow{
+    transform: rotate(180deg);
+}
+.menu .sub-menu{
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top:5px;
+    border-left:1px solid #f6f6f6;
+}
+.menu .sub-menu li a{
+    padding: 10px 8px;
+    font-size: 12px;
+}
+.menu:not(:last-child){
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f6f6f6;
+}
+.menu-btn{
+    position: absolute;
+    right: -14px;
+    top: 3.5%;
+    width: 28px;
+    border-radius:8px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ECF4D6;
+    border: 2px solid #f6f6f6;
+    background-color: #265073;
+    cursor: pointer;
+}
+.menu-btn:hover i{
+    color: #000;
+}
+.menu-btn i{
+    transition: all 0.3s;
+}
+.sidebar .active{
+    width: 200px;
+}
+.sidebar.active .menu-btn i{
+    transform: rotate(180deg);
+}
+.sidebar.active.user-details{
+    display: none;
+}
+.sidebar.active.menu.title{
+    text-align: center;  
+}
+.sidebar.active.menu ul li .arrow{
+    display: none;
+}
+.sidebar.active.menu>ul>li>a.text{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar.active.menu>ul>li>a.text{
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%); 
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    
+}
+sidebar.active.menu>ul>li>a.text::after{
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 20%;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: #000;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+sidebar.active.menu>ul>li>a:hover .text{
+    left: 50px;
+    opacity: 1;
+    visibility: visible;
+}
+.sidebar.active.menu.sub-menu{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 200px;
+    border-radius:20px ;
+    padding: 10px 20px;
+    border: 1px solid #f6f6f6;
+    background-color: #fff;
+    box-shadow: 0px 10px 8px rgba(0,0,0,0.1);
+
+}
+    </style>
+  </head>
+  <body>
+  
+   <!-- header -->
+   <div class="width-100 top-header">
+    <div class="container1">
+        <div class="width-100">
+            <marquee class="headquote">
+                <b class="news-list"> NOTICE : </b><b style="color: white;"> Campus Connect 360: Welcome to this website of National
+                    Institute Of Technology Patna.</b></marquee>
+        </div>
+    </div>
+</div>
+<!-- header -->
+
+
+  <div class="container">
+    <div class="sidebar active">
+        <div class="menu-btn">
+            <i class="ph-bold ph-caret-left"></i>
+        </div>
+        <div class="head">
+            <div class="user-img">
+                <img src="https://www.nitp.ac.in/static/logo512-579d034908ae89b5e0243d1274937d5d.png" alt="">
+            </div>
+            <div class="user-details">
+                <p class="title">NIT PATNA</p>
+                <p class="name" style="color: white;">Campus Connect 360</p>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="menu">
+                <p class="title">Main</p>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon ph-bold ph-user"></i>
+                        <span class="text">Registration Form</span>
+                       <i class="arrow ph-bold ph-caret-down"></i>
+                       </a>
+                       <ul class="sub-menu">
+                        <li>
+                            <a href="/insideadmissionform">
+                                <span class="text">Admission Form</span>
+                            </a>
+                        </li>
+                       
+                       </ul>
+                       
+                    
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon ph-bold ph-user"></i>
+                        <span class="text">Examination</span>
+                       <i class="arrow ph-bold ph-caret-down"></i>
+                       </a>
+                       <ul class="sub-menu">
+                        <li>
+                            <a href="/printRegistrationform">
+                                <span class="text">Registration Form Entry</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/departmentelective">
+                                <span class="text"> Department Elective</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admitcard">
+                                <span class="text"> Admit Card</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/gradecard">
+                                <span class="text"> Provisional Grade Card</span>
+                            </a>
+                        </li>
+                       </ul>
+                       
+                    
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon ph-bold ph-user"></i>
+                        <span class="text">Club</span>
+                       <i class="arrow ph-bold ph-caret-down"></i>
+                       </a>
+                       <ul class="sub-menu">
+                        <li>
+                            <a href="/club">
+                                <span class="text">College Club</span>
+                            </a>
+                        </li>
+                       
+                       </ul>
+                       
+                    
+                    </li>
+                   
+                    <li>
+                        <a href="#"><i class="icon ph-bold ph-user"></i>
+                        <span class="text">Placement</span>
+                       <i class="arrow ph-bold ph-caret-down"></i>
+                       </a>
+                       <ul class="sub-menu">
+                        <li>
+                            <a href="/placement">
+                                <span class="text">Placement Updates</span>
+                            </a>
+                        </li>
+
+                         <li>
+                            <a href="/alumnidetails">
+                                <span class="text">Alumni Details</span>
+                            </a>
+                        </li>
+                       
+                       </ul>
+                       
+                    
+                    </li>
+                   
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Miscelleneous</p>
+                <ul>
+                    <li>
+                        <a href="/feePayment">
+                            <i class="icon ph-bold ph-coin"></i>
+                                <span class="text">Fee Payment</span>
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/downloadReceipt">
+                            <i class="icon ph-bold ph-download"></i>
+                                <span class="text">Download Receipt</span>
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout">
+                            <i class="icon ph-bold ph-sign-out"></i>
+                                <span class="text">Logout</span>
+                            
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+  </div>
+  <script>
+    $(".menu > ul >li").click(function(e){
+    $(this).siblings().removeClass("active")
+    $(this).toggleClass("active");
+    //down open
+    $(this).find("ul").slideToggle();
+    //close other submenu if any open
+    $(this).siblings().find("ul").slideUp();
+    //remove active class of sub menu item
+    $(this).siblings().find("ul").find("li").removeClass("active");
+});
+
+$(".menu-btn").click(function(){
+    $(".sidebar").toggleClass("active");
+});
+
+
+  </script>
+  </body>
